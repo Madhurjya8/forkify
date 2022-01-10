@@ -36,10 +36,7 @@ export const loadRecipe = async function (id) {
     if (state.bookmarks.some(bookmarkedRecipe => bookmarkedRecipe.id === id))
       state.recipe.bookmarked = true;
     else state.recipe.bookmarked = false;
-
-    console.log(state.recipe);
   } catch (err) {
-    console.error(`${err} 💥💥💥💥`);
     throw err;
   }
 };
@@ -60,7 +57,6 @@ export const loadSearchResults = async function (query) {
     });
     state.search.page = 1;
   } catch (err) {
-    console.error(`${err} 💥💥💥💥`);
     throw err;
   }
 };
@@ -88,10 +84,8 @@ const persistBookmarks = function () {
 };
 
 export const addBookmark = function (recipe) {
-  console.log('ADDED 🎁');
   // Add bookmark
   state.bookmarks.push(recipe);
-  console.log(state.bookmarks);
 
   // Mark current recipe as bookmarked
   if (recipe.id === state.recipe.id) state.recipe.bookmarked = true;
@@ -100,7 +94,6 @@ export const addBookmark = function (recipe) {
 };
 
 export const deleteBookmark = function (id) {
-  console.log('DELETED 🎁');
   // Delete bookmark
   const index = state.bookmarks.findIndex(
     bookmarkedRecipe => bookmarkedRecipe.id === id
