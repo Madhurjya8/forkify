@@ -11,10 +11,6 @@ import 'core-js/stable'; // for polyfilling ES6 stuff
 import 'regenerator-runtime/runtime'; // for polyfilling async-await
 import { async } from 'regenerator-runtime';
 
-// if (module.hot) {
-//   module.hot.accept();
-// }
-
 const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
